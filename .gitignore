@@ -1,0 +1,9 @@
+setup.py
+*.pyc
+.idea/
+.project
+.pydevproject
+.directory
+.vscode
+.venv/*
+/venv/*
