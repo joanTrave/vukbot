@@ -1,9 +1,13 @@
 from typing import NoReturn
+import logging
 
 from telegram.ext import Updater, Dispatcher
 
 UPDATER: Updater = None
 DISPATCHER: Dispatcher = None
+
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 
 def main() -> NoReturn:
