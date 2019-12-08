@@ -3,6 +3,8 @@ import logging
 
 from telegram.ext import Updater, Dispatcher
 
+from setup.setup import BOT_TOKEN
+
 UPDATER: Updater = None
 DISPATCHER: Dispatcher = None
 
@@ -16,8 +18,10 @@ def main() -> NoReturn:
     :return: Nothing
     """
     global UPDATER, DISPATCHER
-    UPDATER = Updater(token='TOKEN', use_context=True)
+    UPDATER = Updater(token=BOT_TOKEN, use_context=True)
     DISPATCHER = UPDATER.dispatcher
+
+    UPDATER.start_polling()
 
 
 if __name__ == '__main__':
