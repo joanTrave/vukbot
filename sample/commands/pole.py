@@ -18,6 +18,5 @@ def pole_f(update: Update, context) -> Message:
     pole: bool = now.replace(tzinfo=utc) > sunrise.replace(tzinfo=utc)
     if pole:
         if get_user_winner(update.effective_chat.id, datetime.date.today(), update.effective_user.id):
-            return context.bot.send_message(chat_id=update.effective_chat.id, text=f"Felicidades "
-                                                                               f"@{update.effective_user.username}, "
-                                                                               f"has hecho la pole mañanera")
+            text = f"Felicidades {update.effective_user.first_name}, has hecho la pole mañanera"
+            return context.bot.send_message(chat_id=update.effective_chat.id, text=text)
