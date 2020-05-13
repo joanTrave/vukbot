@@ -2,7 +2,7 @@ import datetime
 
 from telegram import Update, Message
 
-from sample.commands.utils.utils import get_sunrise
+from .utils.utils import get_sunrise
 
 
 def sol_f(update: Update, context) -> Message:

@@ -3,7 +3,7 @@ import pytz
 
 from telegram import Update, Message
 
-from sample.commands.utils.utils import get_sunrise, get_user_winner
+from .utils.utils import get_sunrise, get_user_winner
 
 
 utc=pytz.UTC

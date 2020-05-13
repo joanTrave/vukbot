@@ -1,11 +1,12 @@
+from __future__ import absolute_import
 from typing import NoReturn
 import logging
 
 from telegram import Update, Message
 from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler, Filters, CallbackContext
 
-from sample.commands.pole import pole_f
-from sample.commands.sol import sol_f
+from commands.pole import pole_f
+from commands.sol import sol_f
 from setup.setup import BOT_TOKEN
 
 UPDATER: Updater = Updater(token=BOT_TOKEN, use_context=True)
