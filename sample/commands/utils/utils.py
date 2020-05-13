@@ -14,6 +14,12 @@ POLES_PATH: str = os.path.dirname(os.path.abspath(__file__)) + '/poles.csv'
 
 def get_sunrise() -> datetime.datetime:
     city = LocationInfo("Bigues i Riells", "Spain", "Europe/Madrid", 41.6833, 2.2333)
+    s = sun(city.observer, date=datetime.date.today())
+    return s["sunrise"] + datetime.timedelta(hours=2)
+
+
+def get_sunrise_tomorrow() -> datetime.datetime:
+    city = LocationInfo("Bigues i Riells", "Spain", "Europe/Madrid", 41.6833, 2.2333)
     s = sun(city.observer, date=datetime.date.today() + datetime.timedelta(days=1))
     return s["sunrise"] + datetime.timedelta(hours=2)
 
