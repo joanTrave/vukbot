@@ -1,15 +1,36 @@
 import datetime
 import pytz
 import os
+import random as rd
 
 import pandas as pd
 import numpy as np
+from pexels_api import API
 
 from astral import LocationInfo
 from astral.sun import sun
 
 
+api = None
+
+
+def set_up_api(pexels_api):
+    global api
+    api = API(pexels_api)
+
+
 POLES_PATH: str = os.path.dirname(os.path.abspath(__file__)) + '/poles.csv'
+
+
+def flip_coin(p: int) -> bool:
+    return rd.choice([True] + p*[False])
+
+
+def get_random_photo_url(s: str) -> str:
+    api.search(s, page=1, results_per_page=30)
+    photos = api.get_entries()
+    photo = rd.choice(photos)
+    return photo.medium
 
 
 def get_sunrise() -> datetime.datetime:
