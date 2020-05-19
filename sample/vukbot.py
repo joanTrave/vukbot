@@ -20,11 +20,6 @@ logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 
-def start(update: Update, context: CallbackContext) -> Message:
-    print(update.message.text)
-    return context.bot.send_message(chat_id=update.effective_chat.id, text=str(type(context)))
-
-
 def main() -> NoReturn:
     """
     Creates the updater and the dispatcher
